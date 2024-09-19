@@ -6,3 +6,7 @@ Prediction system to aid [NOOA](https://www.swpc.noaa.gov/about-space-weather) i
 
 - [NOOA](https://www.swpc.noaa.gov/about-space-weather): Space Weather Prediction Center
 - [NASA](https://api.nasa.gov/): National Aeronautics and Space Administration
+
+notes:
+
+	gst requests do not have parent activityID(s)

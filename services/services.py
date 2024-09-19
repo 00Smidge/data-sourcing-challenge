@@ -1,6 +1,7 @@
 import requests
 import pandas as pd
 import json
+import logging
 
 
 def fetch_data(url: str, params: dict = {}, jdumps: bool = False):
@@ -28,18 +29,17 @@ def fetch_data(url: str, params: dict = {}, jdumps: bool = False):
             f"ERROR: jdumps!! Please provide a boolean. Could not read {jdumps}"
         )
 
-    print("Attempting to connect.")
+    logging.info("Attempting to connect.")
     res = requests.get(url, params=params or None)
 
     if res.status_code != 200:
-        print(f"Connection Error!! Code: {res.status_code}")
-        return None
+        raise ValueError(f"Connection Error!! Code: {res.status_code}")
 
     if jdumps is True:
-        print("Returning first result:")
+        logging.info("Returning first result:")
         print(json.dumps(res.json(), indent=4))
 
-    print("Successfully connected")
+    logging.info("Successfully connected")
     return res.json()
 
 
@@ -135,7 +135,8 @@ def cleanUp(df, eventType: str):
         )
 
     # set id type to string
-    cdf[act_id] = cdf[act_id].astype("string")
+    cdf.act_id = cdf.act_id.astype("string")
+    cdf.evn_id = cdf.evn_id.astype("string")
 
     # rename startTime and activityID columns
     if "startTime" in cdf.columns:
@@ -149,8 +150,5 @@ def cleanUp(df, eventType: str):
 
     # drop unneeded "linkedEvent" column
     cdf = cdf.drop("linkedEvents", axis=1)
-
-    # confirm dataframe creation
-    cdf.info()
 
     return cdf
