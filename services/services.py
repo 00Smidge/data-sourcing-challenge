@@ -135,8 +135,8 @@ def cleanUp(df, eventType: str):
         )
 
     # set id type to string
-    cdf.act_id = cdf.act_id.astype("string")
-    cdf.evn_id = cdf.evn_id.astype("string")
+    cdf[act_id] = cdf[act_id].astype("string")
+    cdf[evn_id] = cdf[evn_id].astype("string")
 
     # rename startTime and activityID columns
     if "startTime" in cdf.columns:
