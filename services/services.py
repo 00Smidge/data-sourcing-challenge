@@ -33,7 +33,7 @@ def fetch_data(url: str, params: dict = {}, jdumps: bool = False):
 
     if res.status_code != 200:
         print(f"Connection Error!! Code: {res.status_code}")
-        return
+        return None
 
     if jdumps is True:
         print("Returning first result:")
@@ -131,7 +131,7 @@ def cleanUp(df, eventType: str):
     # check if act_id string exists
     if act_id not in cdf.columns:
         raise ValueError(
-            f"ERROR: act_id!!! Can not find column name {str.upper(eventType)}_ActivityID"
+            f"ERROR: act_id!!! Could not find column name {str.upper(eventType)}_ActivityID"
         )
 
     # set id type to string
