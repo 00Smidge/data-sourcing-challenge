@@ -2,18 +2,21 @@
 # coding: utf-8
 
 # ### Import Required Libraries and Set Up Environment Variables
-#
+# 
 
 # In[1]:
 
 
 # Dependencies
 import os
+import sys
 import pandas as pd
 from dotenv import load_dotenv
 from datetime import datetime
 
-# project service file for housing python functions
+# Add the parent directory (where the 'services' folder is located) to the Python path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 from notebooks.services import services
 
 ## Load the NASA_API_KEY from the env file
@@ -21,10 +24,10 @@ load_dotenv()
 NASA_API_KEY = os.getenv("NASA_API_KEY")
 
 
-#
+# 
 
 # ### GST Data
-#
+# 
 
 # In[2]:
 
@@ -125,10 +128,14 @@ clean_df.info()
 # save all strings that contain 'CME'
 gst_to_cme_events = clean_df[clean_df.GST_ActivityID.str.contains("CME")]
 
-gst_to_cme_events.to_csv("../data/gst_to_cme_events.csv", index=False)
+gst_to_cme_events.to_csv("data/composed/gst_to_cme_events.csv", index=False)
 
 for event in gst_to_cme_events.GST_ActivityID:
     print(event)
 
 
 # In[ ]:
+
+
+
+

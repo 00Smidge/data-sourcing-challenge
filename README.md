@@ -10,3 +10,6 @@ Prediction system to aid [NOOA](https://www.swpc.noaa.gov/about-space-weather) i
 notes:
 
 	gst requests do not have parent activityID(s)
+
+	convert the ipynb(s) into py script files
+	jupyter nbconvert --to script --output-dir=./scripts notebooks/*.ipynb

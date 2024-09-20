@@ -19,15 +19,12 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from notebooks.services import services
 
-# project service file for housing python functions
-
-
 ## Load the NASA_API_KEY from the env file
 load_dotenv()
 NASA_API_KEY = os.getenv("NASA_API_KEY")
 
 
-#
+# 
 
 # ### CME Data
 
@@ -126,7 +123,7 @@ clean_df.info()
 # save all strings that contain 'GST'
 cme_to_gst_events = clean_df[clean_df.CME_ActivityID.str.contains("GST")]
 
-cme_to_gst_events.to_csv("../data/cme_to_gst_events.csv", index=False)
+cme_to_gst_events.to_csv("data/composed/cme_to_gst_events.csv", index=False)
 
 # loop through the events and print each event
 for event in cme_to_gst_events.CME_ActivityID:
@@ -134,3 +131,7 @@ for event in cme_to_gst_events.CME_ActivityID:
 
 
 # In[ ]:
+
+
+
+

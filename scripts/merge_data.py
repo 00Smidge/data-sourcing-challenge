@@ -11,15 +11,15 @@ import pandas as pd
 from datetime import datetime
 
 
-#
+# 
 
 # ### Merge both datatsets
 
 # In[115]:
 
 
-ctg_csv = pd.read_csv("../data/cme_to_gst_events.csv")
-gtc_csv = pd.read_csv("../data/gst_to_cme_events.csv")
+ctg_csv = pd.read_csv("data/composed/cme_to_gst_events.csv")
+gtc_csv = pd.read_csv("data/composed/gst_to_cme_events.csv")
 ctg_df = pd.DataFrame(ctg_csv)
 gtc_df = pd.DataFrame(gtc_csv)
 
@@ -43,9 +43,6 @@ gtc_df.sample(n=5)
 
 # gstID & CME_ActivityID: gst
 # cmeID & GST_ActivityID: cme
-
-# ctg_df_xpl = ctg_df.explode("CME_ActivityID")
-# gtc_df_xpl = gtc_df.explode("GST_ActivityID")
 
 ctg_df["cme"] = ctg_df["cmeID"] + "-" + ctg_df["CME_ActivityID"]
 gtc_df["gst"] = gtc_df["gstID"] + "-" + gtc_df["GST_ActivityID"]
@@ -128,7 +125,11 @@ merge_result.describe()
 
 
 # Export data to CSV without the index
-merge_result.to_csv("../data/gst_cme_merged.csv", index=False)
+merge_result.to_csv("data/composed/gst_cme_merged.csv", index=False)
 
 
 # In[ ]:
+
+
+
+
