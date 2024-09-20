@@ -2,6 +2,10 @@ import requests
 import pandas as pd
 import json
 import logging
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 
 def fetch_data(url: str, params: dict = {}, jdumps: bool = False):
