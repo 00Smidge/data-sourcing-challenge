@@ -34,13 +34,20 @@ def fetch_data(url: str, params: dict = {}, jdumps: bool = False):
 
     if res.status_code != 200:
         raise ValueError(f"Connection Error!! Code: {res.status_code}")
+    logging.info("Successfully connected")
+
+    res_data = res.json()
 
     if jdumps is True:
-        logging.info("Returning first result:")
-        json.dumps(res.json(), indent=4)
+        if isinstance(res_data, list):
+            logging.info("Returning first result:")
+            print(json.dumps(res_data[0], indent=4))
+        else:
+            logging.warning("Warning!! Response is not a list. Printing full response")
+            print(json.dumps(res_data, indent=4))
 
-    logging.info("Successfully connected")
-    return res.json()
+    logging.info("Fin!")
+    return res_data
 
 
 def extract_activityID_from_dict(events: list):
