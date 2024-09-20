@@ -99,7 +99,7 @@ def expand_rows(df, column: str = "linkedEvents"):
     return rows
 
 
-def cleanUp(df, eventType: str):
+def clean_up(df, eventType: str):
     """
     Cleans a DataFrame by modifying column names and types based on eventType.
 
@@ -134,10 +134,6 @@ def cleanUp(df, eventType: str):
             f"ERROR: act_id!!! Could not find column name {str.upper(eventType)}_ActivityID"
         )
 
-    # set id type to string
-    cdf[act_id] = cdf[act_id].astype("string")
-    cdf[evn_id] = cdf[evn_id].astype("string")
-
     # rename startTime and activityID columns
     if "startTime" in cdf.columns:
         cdf.startTime = pd.to_datetime(df.startTime)
@@ -147,6 +143,10 @@ def cleanUp(df, eventType: str):
                 "activityID": evn_id,
             }
         )
+
+    # set id type to string
+    cdf[act_id] = cdf[act_id].astype("string")
+    cdf[evn_id] = cdf[evn_id].astype("string")
 
     # drop unneeded "linkedEvent" column
     cdf = cdf.drop("linkedEvents", axis=1)
