@@ -37,7 +37,7 @@ def fetch_data(url: str, params: dict = {}, jdumps: bool = False):
 
     if jdumps is True:
         logging.info("Returning first result:")
-        json.dumps(res.json(), indent=4)
+        # json.dumps(res.json(), indent=4)
 
     logging.info("Successfully connected")
     return res.json()
