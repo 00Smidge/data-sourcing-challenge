@@ -11,7 +11,7 @@ import pandas as pd
 from datetime import datetime
 
 
-# 
+#
 
 # ### Merge both datatsets
 
@@ -129,7 +129,3 @@ merge_result.to_csv("data/composed/gst_cme_merged.csv", index=False)
 
 
 # In[ ]:
-
-
-
-

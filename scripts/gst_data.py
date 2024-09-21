@@ -2,7 +2,7 @@
 # coding: utf-8
 
 # ### Import Required Libraries and Set Up Environment Variables
-# 
+#
 
 # In[1]:
 
@@ -24,10 +24,10 @@ load_dotenv()
 NASA_API_KEY = os.getenv("NASA_API_KEY")
 
 
-# 
+#
 
 # ### GST Data
-# 
+#
 
 # In[2]:
 
@@ -135,7 +135,3 @@ for event in gst_to_cme_events.GST_ActivityID:
 
 
 # In[ ]:
-
-
-
-
