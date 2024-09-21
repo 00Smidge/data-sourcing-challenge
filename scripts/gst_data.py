@@ -2,7 +2,7 @@
 # coding: utf-8
 
 # ### Import Required Libraries and Set Up Environment Variables
-#
+# 
 
 # In[1]:
 
@@ -12,7 +12,6 @@ import os
 import sys
 import pandas as pd
 from dotenv import load_dotenv
-from datetime import datetime
 
 # Add the parent directory (where the 'services' folder is located) to the Python path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
@@ -24,10 +23,10 @@ load_dotenv()
 NASA_API_KEY = os.getenv("NASA_API_KEY")
 
 
-#
+# 
 
 # ### GST Data
-#
+# 
 
 # In[2]:
 
@@ -135,3 +134,7 @@ for event in gst_to_cme_events.GST_ActivityID:
 
 
 # In[ ]:
+
+
+
+

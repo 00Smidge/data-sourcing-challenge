@@ -11,7 +11,6 @@ import os
 import sys
 import pandas as pd
 from dotenv import load_dotenv
-from datetime import datetime
 
 
 # Add the parent directory (where the 'services' folder is located) to the Python path
@@ -24,7 +23,7 @@ load_dotenv()
 NASA_API_KEY = os.getenv("NASA_API_KEY")
 
 
-#
+# 
 
 # ### CME Data
 
@@ -131,3 +130,7 @@ for event in cme_to_gst_events.CME_ActivityID:
 
 
 # In[ ]:
+
+
+
+
